@@ -26,5 +26,5 @@ git clone https://github.com/Gopikrishna242/frontendd.git
 
 Head "npm install"
 cd /var/www/html/todo/frontend && npm install
-sed -i -e 's+/var/www/html+/var/www/html/frontend/dist+g' /etc/nginx/sites-enabled/default
+sed -i -e 's+/var/www/html+/var/www/html/todo/frontend/dist+g' /etc/nginx/sites-enabled/default
 
