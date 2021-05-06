@@ -25,6 +25,9 @@ Head "Move service file"
 cd todo && mv todo.service /etc/systemd/system
 Stat $?
 
+Head "changing Private IP"
+sed -i -e 's+redis-private-Ip+/+g' /etc/systemd/system/todo.service
+
 Head "Starting login service"
 systemctl daemon-reload && systemctl start todo.service && systemctl enable todo.service && systemctl status todo.service
 stat $?
