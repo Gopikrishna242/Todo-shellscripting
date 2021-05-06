@@ -21,8 +21,12 @@ Head "Maven Build"
 cd users && mvn clean package &>>$LOG
 Stat $?
 
+Head "rename jar file"
+cd /root/Todo-shellscripting/users/target && mv users-api-0.0.1.jar users.jar
+Stat $?
+
 Head "Move service file"
-cd Todo-shellscripting/users && mv users.service /etc/systemd/system/
+cd /root/Todo-shellscripting/users && mv users.service /etc/systemd/system/
 Stat $?
 
 Head "Start the users service"
