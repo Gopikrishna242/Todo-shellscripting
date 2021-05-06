@@ -22,7 +22,7 @@ cd users && mvn clean package &>>$LOG
 Stat $?
 
 Head "Move service file"
-cd users && mv users.service /etc/systemd/system/
+cd Todo-shellscripting/users && mv users.service /etc/systemd/system/
 Stat $?
 
 Head "Start the users service"
