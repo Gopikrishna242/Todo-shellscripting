@@ -22,7 +22,7 @@ cd users && mvn clean package &>>$LOG
 Stat $?
 
 Head "rename jar file"
-mv /root/Todo-shellscripting/users/target/users-api-0.0.1.jar users.jar
+mv /root/Todo-shellscripting/users/target/users-api-0.0.1.jar /root/Todo-shellscripting/users/target/users.jar
 Stat $?
 
 Head "Move service file"
