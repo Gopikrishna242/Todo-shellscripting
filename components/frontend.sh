@@ -27,7 +27,11 @@ git clone https://github.com/Gopikrishna242/frontendd.git
 stat $?
 
 Head "npm install"
-cd /var/www/html/todo/frontendd && npm install && npm run build &>>$LOG
+cd /var/www/html/todo/frontendd && npm install &>>$LOG
+Stat $?
+
+Head "npm build"
+cd /var/www/html/todo/frontendd && npm run build &>>$LOG
 Stat $?
 
 Head "changing default path"
@@ -41,7 +45,7 @@ sed -i -e 's+/TODOS_API_ADDRESS || 'http://127.0.0.1:8080'+/TODOS_API_ADDRESS ||
 Stat $?
 
 Head "start service"
-cd /var/www/html/Todo/frontend && systemctl restart nginx && systemctl enable nginx && npm start
+cd /var/www/html/Todo/frontendd && systemctl restart nginx && systemctl enable nginx && npm start
 Stat $?
 
 
