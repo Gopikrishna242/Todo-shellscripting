@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source common.sh
+source components/common.sh
 
 
 OS_PREREQ
@@ -22,11 +22,11 @@ cd todo && npm install &>>$LOG
 Stat $?
 
 Head "Move service file"
-cd todo && mv todo.service /etc/systemd/system
+cd /root/Todo-shellscripting/todo && mv todo.service /etc/systemd/system
 Stat $?
 
 Head "changing Private IP"
-sed -i -e 's+redis-private-Ip+/+g' /etc/systemd/system/todo.service
+sed -i -e 's+redis-private-Ip+/172.31.55.44+g' /etc/systemd/system/todo.service
 
 Head "Starting login service"
 systemctl daemon-reload && systemctl start todo.service && systemctl enable todo.service && systemctl status todo.service
