@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source common.sh
+source components/common.sh
 
 
 OS_PREREQ
@@ -22,7 +22,7 @@ cd login && mv login.service /etc/systemd/system/
 Stat $?
 
 Head "Changing private IP in service file"
-sed -i -e 's+user-private-ip+/+g' /etc/systemd/system/login.service
+
 Stat $?
 
 Head "Start the service"
