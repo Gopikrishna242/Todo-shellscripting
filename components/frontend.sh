@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source common.sh
+source components/common.sh
 
 
 OS_PREREQ
@@ -27,16 +27,17 @@ git clone https://github.com/Gopikrishna242/frontendd.git
 stat $?
 
 Head "npm install"
-cd /var/www/html/todo/frontend && npm install && npm run build &>>$LOG
+cd /var/www/html/todo/frontendd && npm install && npm run build &>>$LOG
 Stat $?
 
 Head "changing default path"
-sed -i -e 's+/var/www/html+/var/www/html/todo/frontend/dist+g' /etc/nginx/sites-enabled/default
+sed -i -e 's+/var/www/html+/var/www/html/todo/frontendd/dist+g' /etc/nginx/sites-enabled/default
 Stat $?
 
 Head "changing private IP's" 
 cd /var/www/html/todo/frontendd/config
-sed -i -e 's+/'
+sed -i -e 's+/AUTH_API_ADDRESS || 'http://127.0.0.1:8080'+/AUTH_API_ADDRESS || 'http://172.31.54.183:8080'+g' /var/www/html/todo/frontendd/config/index.js
+sed -i -e 's+/TODOS_API_ADDRESS || 'http://127.0.0.1:8080'+/TODOS_API_ADDRESS || 'http://172.31.62.8:8080'+g' /var/www/html/todo/frontendd/config/index.js
 Stat $?
 
 Head "start service"
