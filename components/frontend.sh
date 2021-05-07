@@ -43,7 +43,7 @@ export AUTH_API_ADDRESS=http://172.31.54.183:8080
 Stat $?
 
 Head "changing private IP of TODO" 
-export TODO_API_ADDRESS=http://172.31.62.8:8080
+export TODOS_API_ADDRESS=http://172.31.62.8:8080
 Stat $?
 
 Head "start service"
