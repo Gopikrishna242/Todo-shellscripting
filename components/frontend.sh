@@ -38,10 +38,12 @@ Head "changing default path"
 sed -i -e 's+/var/www/html+/var/www/html/todo/frontendd/dist+g' /etc/nginx/sites-enabled/default
 Stat $?
 
-Head "changing private IP's" 
-cd /var/www/html/todo/frontendd/config
-sed -i -e 's+/AUTH_API_ADDRESS || 'http://127.0.0.1:8080'+/AUTH_API_ADDRESS || 'http://172.31.54.183:8080'+g' /var/www/html/todo/frontendd/config/index.js
-sed -i -e 's+/TODOS_API_ADDRESS || 'http://127.0.0.1:8080'+/TODOS_API_ADDRESS || 'http://172.31.62.8:8080'+g' /var/www/html/todo/frontendd/config/index.js
+Head "changing private IP of AUTH" 
+export AUTH_API_ADDRESS=http://172.31.54.183:8080
+Stat $?
+
+Head "changing private IP of TODO" 
+export TODO_API_ADDRESS=http://172.31.62.8:8080
 Stat $?
 
 Head "start service"
