@@ -45,7 +45,7 @@ sed -i -e 's+/TODOS_API_ADDRESS || 'http://127.0.0.1:8080'+/TODOS_API_ADDRESS ||
 Stat $?
 
 Head "start service"
-cd /var/www/html/Todo/frontendd && systemctl restart nginx && systemctl enable nginx && npm start
+cd /var/www/html/todo/frontendd && systemctl restart nginx && systemctl enable nginx && npm start
 Stat $?
 
 
