@@ -14,15 +14,15 @@ git clone https://github.com/Gopikrishna242/login.git
 Stat $?
 
 Head "Build process"
-cd login && go build && go get github.com/dgrijalva/jwt-go && go get github.com/labstack/echo && go get github.com/labstack/echo/middleware && go get github.com/labstack/gommon/log && go get github.com/openzipkin/zipkin-go && go get github.com/openzipkin/zipkin-go/middleware/http && go build
+cd /root/Todo-shellscripting/login && go build && go get github.com/dgrijalva/jwt-go && go get github.com/labstack/echo && go get github.com/labstack/echo/middleware && go get github.com/labstack/gommon/log && go get github.com/openzipkin/zipkin-go && go get github.com/openzipkin/zipkin-go/middleware/http && go build
 Stat $?
 
 Head "Move service file"
-cd login && mv login.service /etc/systemd/system/
+cd /root/Todo-shellscripting/login && mv login.service /etc/systemd/system/
 Stat $?
 
 Head "Changing private IP in service file"
-
+sed -i -e 's+/user-private-ip+/172.31.57.208+g' /etc/systemd/system/login.service 
 Stat $?
 
 Head "Start the service"
