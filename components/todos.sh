@@ -26,7 +26,7 @@ cd /root/Todo-shellscripting/todo && mv todo.service /etc/systemd/system
 Stat $?
 
 Head "changing Private IP"
-sed -i -e 's+redis-private-Ip+/172.31.55.44+g' /etc/systemd/system/todo.service
+sed -i -e 's+redis-private-Ip+/redis.recollect.site+g' /etc/systemd/system/todo.service
 
 Head "Starting login service"
 systemctl daemon-reload && systemctl start todo.service && systemctl enable todo.service && systemctl status todo.service
