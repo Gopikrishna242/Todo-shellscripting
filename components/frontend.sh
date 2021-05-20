@@ -39,11 +39,11 @@ sed -i -e 's+/var/www/html+/var/www/html/todo/frontendd/dist+g' /etc/nginx/sites
 Stat $?
 
 Head "changing private IP of AUTH" 
-export AUTH_API_ADDRESS=http://172.31.54.183:8080
+export AUTH_API_ADDRESS=http://login.recollect.site:8080
 Stat $?
 
 Head "changing private IP of TODO" 
-export TODOS_API_ADDRESS=http://172.31.62.8:8080
+export TODOS_API_ADDRESS=http://todo.recollect.site:8080
 Stat $?
 
 Head "start service"
