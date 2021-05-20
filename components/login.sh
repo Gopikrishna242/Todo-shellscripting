@@ -26,7 +26,7 @@ cd /root/Todo-shellscripting/login && mv login.service /etc/systemd/system/
 Stat $?
 
 Head "Changing private IP in service file"
-sed -i -e 's+/user-private-ip+/172.31.57.208+g' /etc/systemd/system/login.service 
+sed -i -e 's+/user-private-ip+/user.recollect.site+g' /etc/systemd/system/login.service 
 Stat $?
 
 Head "Start the service"
